@@ -8,21 +8,32 @@ import { NgMaterialModule } from './modules/ng-material/ng-material.module';
 import { AdminComponent } from './Pages/admin/admin.component';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { AnimVideoComponent } from './modules/components/anim-video/anim-video.component';
+import { LoginComponent } from './modules/components/login/login.component';
+import { RegisterComponent } from './modules/components/register/register.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './modules/shared/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     MainPageComponent,
-    AnimVideoComponent
+    AnimVideoComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     NgMaterialModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

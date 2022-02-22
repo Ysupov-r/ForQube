@@ -1,0 +1,13 @@
+<div class="wrapperLogin">
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input type="text" class="input" formControlName="Username" placeholder="Введите логин">
+    <input type="password" class="input" formControlName="Password" placeholder="Введите пароль">
+    <button type="submit" class="input btn" matRipple>
+      <span>Войти</span>
+      <!-- <span *ngIf="!loading; else loadingW">Войти</span>
+      <ng-template #loadingW>
+        <div class="loading"></div>
+      </ng-template> -->
+    </button>
+  </form>
+</div>
