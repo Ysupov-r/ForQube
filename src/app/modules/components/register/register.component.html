@@ -1,1 +1,9 @@
-<p>register works!</p>
+<div class="wrapperRegister">
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input type="text" class="input" formControlName="Username" placeholder="Введите логин">
+    <input type="password" class="input" formControlName="Password" placeholder="Введите пароль">
+    <button type="submit" class="input btn" matRipple>
+      <span>Зарегестрироваться</span>
+    </button>
+  </form>
+</div>

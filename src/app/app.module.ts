@@ -11,8 +11,9 @@ import { AnimVideoComponent } from './modules/components/anim-video/anim-video.c
 import { LoginComponent } from './modules/components/login/login.component';
 import { RegisterComponent } from './modules/components/register/register.component';
 import { ToastrModule } from 'ngx-toastr';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './modules/shared/auth.service';
+import { TestComponent } from './Pages/test/test.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,14 @@ import { AuthService } from './modules/shared/auth.service';
     MainPageComponent,
     AnimVideoComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     ReactiveFormsModule,
     NgMaterialModule,
     ToastrModule.forRoot()
