@@ -6,7 +6,27 @@
   </div>
   <div class="adminWrapper-right">
     <div class="TestChanges" *ngIf="isTestChanges">
-      TestChanges
+      <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="description">Введите вопрос</div>
+        <input type="text" class="input" formControlName="Question">
+
+        <div class="description">Введите правильный ответ</div>
+        <input type="text" class="input" formControlName="TrueAnswer">
+
+        <div class="description">Введите варианты ответов через пробел</div>
+        <input type="text" class="input" formControlName="AnswerOpt">
+
+        <button type="submit" class="input btn" matRipple>
+          <span>Создать</span>
+        </button>
+      </form>
+      <!-- <div class="inputQuestion">
+        <div class="text">Введите вопрос</div>
+        <input type="text" class="input">
+      </div>
+      <div class="inputTrueAnswer"></div>
+      <div class="inputAnswerOptions"></div> -->
     </div>
 
     <div class="ViewResult" *ngIf="!isTestChanges">
