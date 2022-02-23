@@ -1,1 +1,26 @@
-<p>test works!</p>
+<div class="wrapperTest">
+
+  <ng-container *ngIf="!isResult; else result">
+    <div *ngFor="let item of animalTest; let i = index">
+      <label id="radio-group-label">{{i + 1}}: {{item.question}}</label>
+      <mat-radio-group aria-labelledby="radio-group-label" class="test" [(ngModel)]="item.answer">
+        <mat-radio-button class="answerOptions" *ngFor="let opt of item.answerOpt" [value]="opt">
+          {{opt}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </ng-container>
+
+  <div class="complete" (click)="completeTest()" matRipple>{{!isResult ? 'Завершить' : 'Назад'}}</div>
+
+  <ng-template #result>
+    <ng-container *ngFor="let item of resultList[0].result">
+      <div class="results"> {{item.question}}
+        <div class="answerOptions">Ваш ответ: <span [ngClass]="{'text_line-through': !item.isCorrect}">{{item.answer}}</span></div>
+        <div class="answerOptions">Правильный ответ: <span style="color: greenyellow;">{{item.trueAnswer}}</span></div>
+      </div>
+    </ng-container>
+  </ng-template>
+  
+  
+</div>

@@ -14,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './modules/shared/auth.service';
 import { TestComponent } from './Pages/test/test.component';
+import { TestService } from './modules/shared/test.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { TestComponent } from './Pages/test/test.component';
   ],
   providers: [
     AuthService,
+    TestService,
   ],
   bootstrap: [AppComponent]
 })

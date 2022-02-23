@@ -30,9 +30,11 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       this.service.login(this.form.value).subscribe(res => {
-        console.log('response login', res);
-        if (res) this.router.navigate(['/test']);
-          else this.toast.error('Не верный логин или пароль');
+        if (res) {
+          console.log(this.form.value);
+          localStorage.setItem('QubeUserName', this.form.value.Username);
+          this.router.navigate(['/test'])
+        } else this.toast.error('Не верный логин или пароль');
       });
     }
   }
