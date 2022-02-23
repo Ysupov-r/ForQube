@@ -1,6 +1,7 @@
 import { TestService, ITest, UserResult } from './../../modules/shared/test.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-test',
@@ -17,7 +18,8 @@ export class TestComponent implements OnInit {
 
   constructor(
     private service: TestService,
-    private router: Router
+    private router: Router,
+    private toast: ToastrService
   ) {
     this.animalTest = this.service.animalTest;
   }
@@ -28,6 +30,12 @@ export class TestComponent implements OnInit {
 
   completeTest(): void {
     if (!this.isResult) {
+      const findUser = this.service.resultList.findIndex(el => el.userName === this.userName);
+      console.log(findUser)
+      if (findUser >= 0) {
+        this.toast.error('Вы уже прошли тест');
+        return;
+      }
       const obj = {
         userName: this.userName,
         result: this.animalTest.map(q => {
@@ -46,6 +54,10 @@ export class TestComponent implements OnInit {
     } else {
       this.isResult = false;
     }
+  }
+
+  openAdmin(): void {
+    this.router.navigate(['/admin']);
   }
 
 }

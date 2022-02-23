@@ -1,1 +1,23 @@
-<p>admin works!</p>
+<div class="adminWrapper">
+  <div class="adminWrapper-left">
+    <div class="adminWrapper-left-item" (click)="selectItem('test')">Изменение теста</div>
+    <div class="adminWrapper-left-item" (click)="selectItem('result')">Просмотр результатов</div>
+    <div class="adminWrapper-left-item" (click)="backTest()">Назад к тестам</div>
+  </div>
+  <div class="adminWrapper-right">
+    <div class="TestChanges" *ngIf="isTestChanges">
+      TestChanges
+    </div>
+
+    <div class="ViewResult" *ngIf="!isTestChanges">
+      <div class="users" *ngFor="let item of resultList">
+        <div class="userName">Пользователь: {{item.userName}}</div>
+        <div class="results" *ngFor="let res of item.result">
+          <div class="question">Вопрос: {{res.question}}</div>
+          <div class="answer">Ответ пользователя: <span [ngClass]="{'text_line-through': !res.isCorrect}">{{res.answer}}</span></div>
+          <div class="answer">Правильный ответ: <span style="color: greenyellow;">{{res.trueAnswer}}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

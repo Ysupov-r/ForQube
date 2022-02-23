@@ -15,12 +15,14 @@
 
   <ng-template #result>
     <ng-container *ngFor="let item of resultList[0].result">
-      <div class="results"> {{item.question}}
+      <div class="results">Вопрос: {{item.question}}
         <div class="answerOptions">Ваш ответ: <span [ngClass]="{'text_line-through': !item.isCorrect}">{{item.answer}}</span></div>
         <div class="answerOptions">Правильный ответ: <span style="color: greenyellow;">{{item.trueAnswer}}</span></div>
       </div>
     </ng-container>
   </ng-template>
+
+  <div class="AdminBtn" matRipple (click)="openAdmin()">Админка</div>
   
   
 </div>
