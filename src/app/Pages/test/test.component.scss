@@ -48,7 +48,8 @@
     cursor: pointer;
   }
 
-  .AdminBtn {
+  .AdminBtn,
+  .LogOutBtn {
     display: flex;
     position: absolute;
     right: 0;
@@ -68,5 +69,9 @@
     font-weight: 500;
     font-size: 24px;
     cursor: pointer;
+  }
+
+  .AdminBtn {
+    top: 68px;
   }
 }

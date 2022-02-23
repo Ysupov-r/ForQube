@@ -60,4 +60,9 @@ export class TestComponent implements OnInit {
     this.router.navigate(['/admin']);
   }
 
+  logOut(): void {
+    localStorage.clear();
+    this.router.navigate(['/main']);
+  }
+
 }
