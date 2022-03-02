@@ -25,6 +25,10 @@ export class TestComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.service.keyCloacTestReq();
+    // this.service.keyloackTest().subscribe(res => {
+    //   console.log('KeyLoacRes = ', res);
+    // });
 
   }
 

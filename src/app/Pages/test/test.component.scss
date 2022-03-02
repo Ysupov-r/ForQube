@@ -5,6 +5,10 @@
   padding: 30px;
 }
 
+@mixin background($colorB) {
+  background: $colorB;
+}
+
 .wrapperTest {
   display: flex;
   position: relative;
@@ -69,6 +73,10 @@
     font-weight: 500;
     font-size: 24px;
     cursor: pointer;
+
+    // @include background {
+    //   color: #000;
+    // }
   }
 
   .AdminBtn {

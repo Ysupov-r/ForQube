@@ -14,7 +14,7 @@ export class AppComponent implements  OnInit {
   ) { }
 
   ngOnInit(): void {
-    const user = localStorage.getItem('QubeUserName');
-    if (!user) this.router.navigate(['/main']);
+    // const user = localStorage.getItem('QubeUserName');
+    // if (!user) this.router.navigate(['/main']);
   }
 }

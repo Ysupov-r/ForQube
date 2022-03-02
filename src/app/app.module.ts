@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './modules/shared/auth.service';
 import { TestComponent } from './Pages/test/test.component';
 import { TestService } from './modules/shared/test.service';
+import { HttpClientModule } from '@angular/common/http';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { initializeKeycloak } from './init/keycloak-init.factory';
 
 @NgModule({
   declarations: [
@@ -32,10 +35,19 @@ import { TestService } from './modules/shared/test.service';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    KeycloakAngularModule,
     NgMaterialModule,
     ToastrModule.forRoot()
   ],
   providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    },
+
     AuthService,
     TestService,
   ],

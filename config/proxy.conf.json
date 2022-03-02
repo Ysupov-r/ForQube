@@ -1,0 +1,7 @@
+{
+  "/auth": {
+    "target": "http://192.168.154.100:8081",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
